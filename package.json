@@ -1,0 +1,25 @@
+{
+  "name": "GifTastic",
+  "version": "1.0.0",
+  "description": "University of Minnesota Coding Bootcamp - Week 6 HW Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madeloux/GifTastic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madeloux/GifTastic/issues"
+  },
+  "homepage": "https://github.com/madeloux/GifTastic#readme",
+  "dependencies": {
+    "eslint": "^4.19.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0"
+  }
+}
