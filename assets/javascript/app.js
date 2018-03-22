@@ -30,17 +30,22 @@ function toggleAnimation(jQueryImg) {
         jQueryImg.attr("data-state", "animated");
     } else {
         jQueryImg.attr("src", jQueryImg.attr("data-still"));
-        jQueryImg.attr("data-state", "still");       
+        jQueryImg.attr("data-state", "still");
     }
+}
+
+function addMovesToPage() {
+    $("#buttons").empty();
+    danceMoves.forEach((move) => {
+        const newButton = $("<button>").text(move);
+        $("#buttons").append(newButton);
+    });
 }
 
 /*-------------------------------------------------------------------------
 / MAIN PROCESS
 /-------------------------------------------------------------------------*/
-danceMoves.forEach((move) => {
-    const newButton = $("<button>").text(move);
-    $("#buttons").append(newButton);
-});
+addMovesToPage();
 
 $("#buttons").on("click", "button", function () {
     console.log($(this).text());
@@ -60,4 +65,13 @@ $("#buttons").on("click", "button", function () {
 
 $("#gifs").on("click", "img", function () {
     toggleAnimation($(this));
+});
+
+$("#submit-new-move").on("click", (e) => {
+    e.preventDefault();
+    const newMove = $("#new-move-input").val().trim();
+    if (newMove) {
+        danceMoves.push(newMove);
+        addMovesToPage();
+    }
 });
