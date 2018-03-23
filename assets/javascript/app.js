@@ -1,10 +1,10 @@
 /*-------------------------------------------------------------------------
 / GLOBAL VARIABLES
 /-------------------------------------------------------------------------*/
-const danceMoves = ["moonwalk", "disco", "breakdance", "krumping", "popping", "boogaloo", "stanky leg", "locking", "jerk", "bollywood", "waacking", "dougie", "wobble", "twerk"];
+const danceMoves = ["moonwalk", "disco", "breakdance", "krump", "pop and lock", "stanky leg", "gangnam style", "bollywood", "twerk", "salsa"];
 const giphyKey = "eaYlz4wDNsFJscQbZ624ZqdUmfjZg3RB";
 const numGifs = 10;
-const baseURL = `https://api.giphy.com/v1/gifs/search?api_key=${giphyKey}&limit=${numGifs}&q=dance%20`;
+const baseURL = `https://api.giphy.com/v1/gifs/search?api_key=${giphyKey}&limit=${numGifs}&q=`;
 
 /*-------------------------------------------------------------------------
 / CONSTRUCTORS & FUNCTIONS
@@ -74,4 +74,5 @@ $("#submit-new-move").on("click", (e) => {
         danceMoves.push(newMove);
         addMovesToPage();
     }
+    $("#new-move-input").val("");
 });
