@@ -17,14 +17,14 @@ html {
   font: 100% "Jura", sans-serif;
   color: white; }
 
-main,
+section,
 .aside-container {
   max-width: 90%;
   margin: 0 auto; }
 
 header,
 aside,
-section,
+main,
 img {
   width: 100%; }
 
@@ -38,11 +38,11 @@ aside {
   padding: 1em 0; }
 
 button {
-  width: 49%; }
+  width: 49%;
+  margin-bottom: 2%; }
 
 button:nth-child(odd) {
-  margin-right: 2%;
-  margin-bottom: 2%; }
+  margin-right: 2%; }
 
 h1 {
   margin: 0; }
@@ -51,7 +51,6 @@ form {
   margin-bottom: 1em; }
 
 .gif-container {
-  position: relative;
   margin: 1em 0; }
   .gif-container p {
     position: absolute;
@@ -72,11 +71,6 @@ button, [type='button'], [type='reset'], [type='submit'] {
     border-color: #324091; }
   button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus {
     outline: #002884; }
-  button:disabled, [type='button']:disabled, [type='reset']:disabled, [type='submit']:disabled {
-    cursor: not-allowed;
-    opacity: 0.5; }
-    button:disabled:hover, [type='button']:disabled:hover, [type='reset']:disabled:hover, [type='submit']:disabled:hover {
-      background-color: #3f50b5; }
 
 label {
   display: inline-block;
@@ -99,5 +93,61 @@ label {
 [type='text'] {
   color: #3f50b5;
   padding-left: 0.4em; }
+
+@media only screen and (min-width: 600px) {
+  aside {
+    width: 33.3333333333%;
+    float: left; }
+
+  section {
+    width: 66.6666666667%;
+    margin: 0;
+    float: right; }
+
+  button {
+    width: 100%;
+    margin-bottom: 2%; }
+
+  button:nth-child(odd) {
+    margin-right: 0; }
+
+  button:last-of-type {
+    margin-bottom: 0; }
+
+  .gif-container {
+    position: relative;
+    margin: 1em; }
+
+  #new-move-input {
+    width: 66.6666666667%; }
+
+  #submit-new-move {
+    width: 33.3333333333%; } }
+@media only screen and (min-width: 900px) {
+  main {
+    position: relative;
+    height: 100vh;
+    overflow: auto; }
+
+  aside {
+    width: 275px;
+    height: 100%;
+    float: left; }
+
+  section {
+    position: absolute;
+    right: 0;
+    left: 275px;
+    height: 100%;
+    margin: 1em;
+    width: auto; }
+
+  img {
+    width: auto; }
+
+  .gif-container {
+    display: inline-block;
+    margin: 0 0 1em 0;
+    padding-right: 1em; } }
 
 /*# sourceMappingURL=style.css.map */
