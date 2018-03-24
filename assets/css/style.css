@@ -1,0 +1,103 @@
+/*----------------------------------------
+/ functions
+/----------------------------------------*/
+/*----------------------------------------
+/ variables
+/----------------------------------------*/
+/*----------------------------------------
+/ assign styles
+/----------------------------------------*/
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  font: 100% "Jura", sans-serif;
+  color: white; }
+
+main,
+.aside-container {
+  max-width: 90%;
+  margin: 0 auto; }
+
+header,
+aside,
+section,
+img {
+  width: 100%; }
+
+header {
+  text-align: center;
+  padding: 1em;
+  background-color: #546e7a; }
+
+aside {
+  background-color: #E1E2E1;
+  padding: 1em 0; }
+
+button {
+  width: 49%; }
+
+button:nth-child(odd) {
+  margin-right: 2%;
+  margin-bottom: 2%; }
+
+h1 {
+  margin: 0; }
+
+form {
+  margin-bottom: 1em; }
+
+.gif-container {
+  position: relative;
+  margin: 1em 0; }
+  .gif-container p {
+    position: absolute;
+    bottom: 0;
+    left: 1em; }
+
+button, [type='button'], [type='reset'], [type='submit'] {
+  background-color: #3f50b5;
+  border-radius: 0;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  border: solid 0.5em #3f50b5;
+  white-space: nowrap;
+  overflow: hidden; }
+  button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
+    background-color: #324091;
+    border-color: #324091; }
+  button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus {
+    outline: #002884; }
+  button:disabled, [type='button']:disabled, [type='reset']:disabled, [type='submit']:disabled {
+    cursor: not-allowed;
+    opacity: 0.5; }
+    button:disabled:hover, [type='button']:disabled:hover, [type='reset']:disabled:hover, [type='submit']:disabled:hover {
+      background-color: #3f50b5; }
+
+label {
+  display: inline-block;
+  width: 100%;
+  color: #3f50b5;
+  font-weight: bold; }
+
+#new-move-input {
+  width: 75%; }
+
+#submit-new-move {
+  width: 25%; }
+
+[type='text'],
+[type='submit'] {
+  border: 1px solid #3f50b5;
+  border-right: 0;
+  padding: 0.4em 0; }
+
+[type='text'] {
+  color: #3f50b5;
+  padding-left: 0.4em; }
+
+/*# sourceMappingURL=style.css.map */

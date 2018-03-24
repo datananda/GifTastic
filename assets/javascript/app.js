@@ -10,11 +10,11 @@ const baseURL = `https://api.giphy.com/v1/gifs/search?api_key=${giphyKey}&limit=
 / CONSTRUCTORS & FUNCTIONS
 /-------------------------------------------------------------------------*/
 function displayGif(gifData) {
-    const newGifDiv = $("<div>");
+    const newGifDiv = $("<div>").addClass("gif-container");
     const newGifImage = $("<img>");
     const newRatingText = $("<p>");
-    const gifStill = gifData.images.fixed_height_still.url;
-    const gifAnimated = gifData.images.fixed_height.url;
+    const gifStill = gifData.images.fixed_width_still.url;
+    const gifAnimated = gifData.images.fixed_width.url;
     const gifRating = gifData.rating;
     newGifImage.attr("src", gifStill).attr("data-still", gifStill).attr("data-animated", gifAnimated).attr("data-state", "still");
     newRatingText.text(`Rating: ${gifRating}`);
@@ -34,7 +34,7 @@ function toggleAnimation(jQueryImg) {
     }
 }
 
-function addMovesToPage() {
+function addMoveToPage() {
     $("#buttons").empty();
     danceMoves.forEach((move) => {
         const newButton = $("<button>").text(move);
@@ -45,7 +45,7 @@ function addMovesToPage() {
 /*-------------------------------------------------------------------------
 / MAIN PROCESS
 /-------------------------------------------------------------------------*/
-addMovesToPage();
+addMoveToPage();
 
 $("#buttons").on("click", "button", function () {
     console.log($(this).text());
@@ -61,6 +61,10 @@ $("#buttons").on("click", "button", function () {
             displayGif(gifData);
         });
     });
+
+    $("html, body").animate({
+        scrollTop: $("#gifs").offset().top
+    }, 1000);
 });
 
 $("#gifs").on("click", "img", function () {
@@ -72,7 +76,7 @@ $("#submit-new-move").on("click", (e) => {
     const newMove = $("#new-move-input").val().trim();
     if (newMove) {
         danceMoves.push(newMove);
-        addMovesToPage();
+        addMoveToPage();
     }
     $("#new-move-input").val("");
 });
