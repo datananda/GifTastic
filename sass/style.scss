@@ -9,11 +9,6 @@
     @return mix(white, $color, $percentage);
 }
 
-@function px-to-vw($target) { 
-    $vw-context: (1000*.01) * 1px;
-    @return ($target/$vw-context) * 1vw;
-}
-
 /*----------------------------------------
 / variables
 /----------------------------------------*/
@@ -75,7 +70,6 @@ img {
 
 header {
     text-align: center;
-    padding: 1em;
     background-color: $primary-color;
 }
 
@@ -95,6 +89,7 @@ button:nth-child(odd) {
 
 h1 {
     margin: 0;
+    padding: 0.5em;
 }
 
 form {
@@ -103,6 +98,7 @@ form {
 
 .gif-container {
     margin: 1em 0;
+    position: relative;
 
     p {
         position: absolute;
@@ -163,15 +159,22 @@ label {
 }
 
 @media only screen and (min-width: $breakpoint-tablet-up) {
+    main {
+        overflow: auto;
+    }
+
     aside {
-        width: 1 / 3 * 100%;
+        height: calc(100vh - 69.6px);
+        width: $sidebar-width;
         float: left;
     }
 
     section {
-        width: 2 / 3 * 100%;
-        margin: 0;
-        float: right;
+        position:absolute;
+        right: 0;
+        left: $sidebar-width;
+        margin: 1em;
+        width: auto;
     }
 
     button {
@@ -188,48 +191,26 @@ label {
     }
 
     .gif-container {
-        position: relative;
-        margin: 1em;
+        margin: 0 0 1em 0;
     }
 
-    #new-move-input {
-        width: 2 / 3 * 100%;
+    .sticky-top {
+        position: fixed;
+        top: 0;
     }
-    
-    #submit-new-move {
-        width: 1 / 3 * 100%;
+
+    .full-vh {
+        height: 100vh;
     }
 }
 
 @media only screen and (min-width: $breakpoint-tablet-landscape-up) {
-    main {
-        position: relative;
-        height: 100vh;
-        overflow: auto;
-    }
-
-    aside {
-        width: $sidebar-width;
-        height: 100%;
-        float: left;
-    }
-
-    section {
-        position:absolute;
-        right: 0;
-        left: $sidebar-width;
-        height: 100%;
-        margin: 1em;
-        width: auto;
-    }
- 
     img {
         width: auto;
     }
 
     .gif-container {
         display: inline-block;
-        margin: 0 0 1em 0;
         padding-right: 1em;
     }
 }

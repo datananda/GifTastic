@@ -6,6 +6,7 @@ const giphyKey = "eaYlz4wDNsFJscQbZ624ZqdUmfjZg3RB";
 const numGifs = 10;
 const baseURL = `https://api.giphy.com/v1/gifs/search?api_key=${giphyKey}&limit=${numGifs}&q=`;
 const mediaQueryList = window.matchMedia("(min-width: 900px)");
+let isMobile = false;
 
 
 /*-------------------------------------------------------------------------
@@ -47,8 +48,10 @@ function addMoveToPage() {
 function handleMediaQueryChange(mq) {
     if (mq.matches) {
         console.log("mq matches");
+        isMobile = false;
     } else {
         console.log("mq doesn't match");
+        isMobile = true;
     }
 }
 
@@ -70,10 +73,12 @@ $("#buttons").on("click", "button", function () {
             displayGif(gifData);
         });
     });
-
-    $("html, body").animate({
-        scrollTop: $("#gifs").offset().top
-    }, 1000);
+    if (isMobile) {
+        $("html, body").animate({
+            scrollTop: $("#gifs").offset().top
+        }, 1000);
+    }
+    $("aside").addClass("full-vh");
 });
 
 $("#gifs").on("click", "img", function () {
@@ -93,3 +98,45 @@ $("#submit-new-move").on("click", (e) => {
 // media query event handler
 mediaQueryList.addListener(handleMediaQueryChange);
 handleMediaQueryChange(mediaQueryList);
+
+
+$(window).scroll(() => {
+    const windowTop = $(window).scrollTop();
+
+    if ($("header").height() < windowTop) {
+        console.log("less than");
+        $("aside").addClass("sticky-top");
+    } else {
+        console.log("greater than");
+        $("aside").removeClass("sticky-top");
+    }
+});
+
+// $( document ).ready(function() {
+//     console.log( "document ready!" );
+  
+//     var $sticky = $('.sticky');
+//     var $stickyrStopper = $('.sticky-stopper');
+//     if (!!$sticky.offset()) { // make sure ".sticky" element exists
+  
+//       var generalSidebarHeight = $sticky.innerHeight();
+//       var stickyTop = $sticky.offset().top;
+//       var stickOffset = 0;
+//       var stickyStopperPosition = $stickyrStopper.offset().top;
+//       var stopPoint = stickyStopperPosition - generalSidebarHeight - stickOffset;
+//       var diff = stopPoint + stickOffset;
+  
+//       $(window).scroll(function(){ // scroll event
+//         var windowTop = $(window).scrollTop(); // returns number
+  
+//         if (stopPoint < windowTop) {
+//             $sticky.css({ position: 'absolute', top: diff });
+//         } else if (stickyTop < windowTop+stickOffset) {
+//             $sticky.css({ position: 'fixed', top: stickOffset });
+//         } else {
+//             $sticky.css({position: 'absolute', top: 'initial'});
+//         }
+//       });
+  
+//     }
+//   });
