@@ -1,48 +1,13 @@
-/*----------------------------------------
-/ functions
-/----------------------------------------*/
-@function shade($color, $percentage) {
-    @return mix(black, $color, $percentage);
-}
-
-@function tint($color, $percentage) {
-    @return mix(white, $color, $percentage);
-}
-
-/*----------------------------------------
-/ variables
-/----------------------------------------*/
-$font-stack:    "Jura", sans-serif;
-
-$primary-color: #546e7a;
-$primary-color-light: #819ca9;
-$primary-color-dark: #29434e;
-$secondary-color: #3f50b5;
-$secondary-color-light: #757ce8;
-$secondary-color-dark: #002884;
-$background-color-dark: #E1E2E1;
-$background-color-light: #F5F5F6;
-
-$breakpoint-tablet-up: 600px;
-$breakpoint-tablet-landscape-up: 900px; 
-
-$buttons-list: (
-  "button",
-  "[type='button']",
-  "[type='reset']",
-  "[type='submit']",
-);
-
-$base-border-radius: 0;
-$button-background-color: $secondary-color;
-$button-background-color-hover: shade($secondary-color, 20%);
-$button-margin: 2%;
-
-$sidebar-width: 275px;
+@import "partials/variables";
+@import "partials/functions";
+@import "partials/buttons";
+@import "partials/form";
 
 /*----------------------------------------
 / assign styles
 /----------------------------------------*/
+
+// global styles
 html {
     box-sizing: border-box;
 }
@@ -55,6 +20,7 @@ html {
     color: white;
 }
 
+// main layout
 section,
 .aside-container {
     max-width: 90%;
@@ -74,35 +40,24 @@ header {
 }
 
 aside {
+    padding: $base-spacing 0;
     background-color: $background-color-dark;
-    padding: 1em 0;
 }
 
-button {
-    width: (100% - $button-margin) / 2;
-    margin-bottom: $button-margin;
-}
-
-button:nth-child(odd) {
-    margin-right: $button-margin;
-}
 
 h1 {
     margin: 0;
-    padding: 0.5em;
+    padding: $base-spacing / 2;
 }
 
-form {
-    margin-bottom: 1em;
-}
 
 .gif-container {
-    margin: 1em 0;
+    margin: $base-spacing 0;
     position: relative;
 
     p {
         position: absolute;
-        padding: 0.5em;
+        padding: $base-spacing / 2;
         margin: 0;
         visibility: hidden;
     }
@@ -132,123 +87,4 @@ form {
     }
 }
 
-#{$buttons-list} {
-  background-color: $button-background-color;
-  border-radius: $base-border-radius;
-  color: white;
-  cursor: pointer;
-  padding: 0;
-  border: solid 0.5em $button-background-color;
-  white-space: nowrap;
-  overflow: hidden;
-
-  &:hover {
-    background-color: $button-background-color-hover;
-    border-color: $button-background-color-hover;
-  }
-
-  &:focus {
-    outline: $secondary-color-dark;
-  }
-}
-
-#show-favorites {
-    background-color: $secondary-color-dark;
-    font-weight: bold;
-    border: solid 0.5em $secondary-color-dark;
-    margin-bottom: $button-margin * 2;
-    width: 100%;
-  
-    &:hover {
-      background-color: shade($secondary-color-dark, 20%);
-      border-color: shade($secondary-color-dark, 20%);
-    }
-  
-    &:focus {
-      outline: $secondary-color-dark;
-    }
-}
-
-label {
-    display: inline-block;
-    width: 100%;
-    color: $secondary-color;
-    font-weight: bold;
-}
-
-#new-move-input {
-    width: 75%;
-}
-
-#submit-new-move {
-    width: 25%;
-}
-
-[type='text'],
-[type='submit'] {
-    border: 1px solid $button-background-color;
-    border-right: 0;
-    padding: 0.4em 0;
-}
-
-[type='text'] {
-    color: $secondary-color;
-    padding-left: 0.4em;
-}
-
-@media only screen and (min-width: $breakpoint-tablet-up) {
-    main {
-        overflow: auto;
-    }
-
-    aside {
-        height: calc(100vh - 69.6px);
-        width: $sidebar-width;
-        float: left;
-    }
-
-    section {
-        position:absolute;
-        right: 0;
-        left: $sidebar-width;
-        margin: 1em;
-        width: auto;
-    }
-
-    button {
-        width: 100%;
-        margin-bottom: $button-margin;
-    }
-
-    button:nth-child(odd) {
-        margin-right: 0;
-    }
-
-    button:last-of-type {
-        margin-bottom: 0;
-    }
-
-    .gif-container {
-        margin: 0 0 1em 0;
-    }
-
-    .sticky-top {
-        position: fixed;
-        top: 0;
-    }
-
-    .full-vh {
-        height: 100vh;
-    }
-}
-
-@media only screen and (min-width: $breakpoint-tablet-landscape-up) {
-    img {
-        width: auto;
-    }
-
-    .gif-container {
-        display: inline-block;
-        margin-right: 1em;
-    }
-}
+@import "partials/media_queries";

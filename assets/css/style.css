@@ -1,9 +1,74 @@
 /*----------------------------------------
+/ variables
+/----------------------------------------*/
+/*----------------------------------------
 / functions
 /----------------------------------------*/
 /*----------------------------------------
-/ variables
+/ buttons
 /----------------------------------------*/
+button {
+  width: 49%;
+  margin-bottom: 2%; }
+
+button:nth-child(odd) {
+  margin-right: 2%; }
+
+button, [type='button'], [type='reset'], [type='submit'] {
+  background-color: #3f50b5;
+  border-radius: 0;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  border: solid 0.5em #3f50b5;
+  white-space: nowrap;
+  overflow: hidden; }
+  button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
+    background-color: shade(#3f50b5, 20%);
+    border-color: shade(#3f50b5, 20%); }
+  button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus {
+    outline: #002884; }
+
+#show-favorites {
+  background-color: #002884;
+  font-weight: bold;
+  border: solid 0.5em #002884;
+  margin-bottom: 4%;
+  width: 100%; }
+  #show-favorites:hover {
+    background-color: #00206a;
+    border-color: #00206a; }
+  #show-favorites:focus {
+    outline: #002884; }
+
+/*----------------------------------------
+/ functions
+/----------------------------------------*/
+form {
+  margin-bottom: 1em; }
+
+label {
+  display: inline-block;
+  width: 100%;
+  color: #3f50b5;
+  font-weight: bold; }
+
+#new-move-input {
+  width: 75%; }
+
+#submit-new-move {
+  width: 25%; }
+
+[type='text'],
+[type='submit'] {
+  border: 1px solid #3f50b5;
+  border-right: 0;
+  padding: 0.5em 0; }
+
+[type='text'] {
+  color: #3f50b5;
+  padding-left: 0.5em; }
+
 /*----------------------------------------
 / assign styles
 /----------------------------------------*/
@@ -33,22 +98,12 @@ header {
   background-color: #546e7a; }
 
 aside {
-  background-color: #E1E2E1;
-  padding: 1em 0; }
-
-button {
-  width: 49%;
-  margin-bottom: 2%; }
-
-button:nth-child(odd) {
-  margin-right: 2%; }
+  padding: 1em 0;
+  background-color: #E1E2E1; }
 
 h1 {
   margin: 0;
   padding: 0.5em; }
-
-form {
-  margin-bottom: 1em; }
 
 .gif-container {
   margin: 1em 0;
@@ -73,55 +128,9 @@ form {
   .gif-container:hover .favorite-button:hover {
     cursor: pointer; }
 
-button, [type='button'], [type='reset'], [type='submit'] {
-  background-color: #3f50b5;
-  border-radius: 0;
-  color: white;
-  cursor: pointer;
-  padding: 0;
-  border: solid 0.5em #3f50b5;
-  white-space: nowrap;
-  overflow: hidden; }
-  button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
-    background-color: #324091;
-    border-color: #324091; }
-  button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus {
-    outline: #002884; }
-
-#show-favorites {
-  background-color: #002884;
-  font-weight: bold;
-  border: solid 0.5em #002884;
-  margin-bottom: 4%;
-  width: 100%; }
-  #show-favorites:hover {
-    background-color: #00206a;
-    border-color: #00206a; }
-  #show-favorites:focus {
-    outline: #002884; }
-
-label {
-  display: inline-block;
-  width: 100%;
-  color: #3f50b5;
-  font-weight: bold; }
-
-#new-move-input {
-  width: 75%; }
-
-#submit-new-move {
-  width: 25%; }
-
-[type='text'],
-[type='submit'] {
-  border: 1px solid #3f50b5;
-  border-right: 0;
-  padding: 0.4em 0; }
-
-[type='text'] {
-  color: #3f50b5;
-  padding-left: 0.4em; }
-
+/*----------------------------------------
+/ functions
+/----------------------------------------*/
 @media only screen and (min-width: 600px) {
   main {
     overflow: auto; }

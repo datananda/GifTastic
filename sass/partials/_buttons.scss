@@ -1,0 +1,51 @@
+/*----------------------------------------
+/ buttons
+/----------------------------------------*/
+
+// defaults
+button {
+    width: (100% - $button-margin) / 2;
+    margin-bottom: $button-margin;
+}
+
+button:nth-child(odd) {
+    margin-right: $button-margin;
+}
+
+#{$buttons-list} {
+    background-color: $button-background-color;
+    border-radius: $base-border-radius;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    border: solid ($base-spacing / 2) $button-background-color;
+    white-space: nowrap;
+    overflow: hidden;
+  
+    &:hover {
+      background-color: $button-background-color-hover;
+      border-color: $button-background-color-hover;
+    }
+  
+    &:focus {
+      outline: $secondary-color-dark;
+    }
+}
+
+// special styling for favorites button
+#show-favorites {
+    background-color: $secondary-color-dark;
+    font-weight: bold;
+    border: solid ($base-spacing / 2) $secondary-color-dark;
+    margin-bottom: $button-margin * 2;
+    width: 100%;
+    
+    &:hover {
+        background-color: shade($secondary-color-dark, 20%);
+        border-color: shade($secondary-color-dark, 20%);
+    }
+    
+    &:focus {
+        outline: $secondary-color-dark;
+    }
+}

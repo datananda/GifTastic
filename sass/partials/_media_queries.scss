@@ -1,0 +1,62 @@
+/*----------------------------------------
+/ functions
+/----------------------------------------*/
+
+// change layout for tablet portrait and up
+@media only screen and (min-width: $breakpoint-tablet-up) {
+    main {
+        overflow: auto;
+    }
+
+    aside {
+        height: calc(100vh - 69.6px);
+        width: $sidebar-width;
+        float: left;
+    }
+
+    section {
+        position: absolute;
+        right: 0;
+        left: $sidebar-width;
+        margin: $base-spacing;
+        width: auto;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: $button-margin;
+    }
+
+    button:nth-child(odd) {
+        margin-right: 0;
+    }
+
+    button:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .gif-container {
+        margin: 0 0 $base-spacing 0;
+    }
+
+    .sticky-top {
+        position: fixed;
+        top: 0;
+    }
+
+    .full-vh {
+        height: 100vh;
+    }
+}
+
+// change layout for tablet landscape and up
+@media only screen and (min-width: $breakpoint-tablet-landscape-up) {
+    img {
+        width: auto;
+    }
+
+    .gif-container {
+        display: inline-block;
+        margin-right: $base-spacing;
+    }
+}

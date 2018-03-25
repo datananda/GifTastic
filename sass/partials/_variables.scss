@@ -1,0 +1,36 @@
+/*----------------------------------------
+/ variables
+/----------------------------------------*/
+
+// fonts
+$font-stack: "Jura", sans-serif;
+
+// colors
+$primary-color: #546e7a;
+$primary-color-light: #819ca9;
+$primary-color-dark: #29434e;
+$secondary-color: #3f50b5;
+$secondary-color-light: #757ce8;
+$secondary-color-dark: #002884;
+$background-color-dark: #E1E2E1;
+$background-color-light: #F5F5F6;
+
+// breakpoints
+$breakpoint-tablet-up: 600px;
+$breakpoint-tablet-landscape-up: 900px; 
+
+// buttons
+$buttons-list: (
+  "button",
+  "[type='button']",
+  "[type='reset']",
+  "[type='submit']",
+);
+$base-border-radius: 0;
+$button-background-color: $secondary-color;
+$button-background-color-hover: shade($secondary-color, 20%);
+$button-margin: 2%;
+
+// sizing
+$sidebar-width: 275px;
+$base-spacing: 1em;

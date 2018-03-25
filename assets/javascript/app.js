@@ -14,11 +14,6 @@ let favorites = JSON.parse(localStorage.getItem("favoriteGiphys"));
 / CONSTRUCTORS & FUNCTIONS
 /-------------------------------------------------------------------------*/
 function displayGif(gifStill, gifAnimated, gifRating) {
-    const gifObj = {
-        dataStill: gifStill,
-        dataAnimated: gifAnimated,
-        rating: gifRating,
-    };
     const newGifDiv = $("<div>").addClass("gif-container");
     const newGifImage = $("<img>");
     const newRatingText = $("<p>").addClass("rating");
@@ -73,6 +68,12 @@ $("#show-favorites").on("click", () => {
     favorites.forEach((favorite) => {
         displayGif(favorite.dataStill, favorite.dataAnimated, favorite.rating);
     });
+    if (isMobile) {
+        $("html, body").animate({
+            scrollTop: $("#gifs").offset().top,
+        }, 1000);
+    }
+    $("aside").addClass("full-vh");
 });
 
 $("#buttons").on("click", "button", function () {
@@ -92,7 +93,7 @@ $("#buttons").on("click", "button", function () {
     });
     if (isMobile) {
         $("html, body").animate({
-            scrollTop: $("#gifs").offset().top
+            scrollTop: $("#gifs").offset().top,
         }, 1000);
     }
     $("aside").addClass("full-vh");
