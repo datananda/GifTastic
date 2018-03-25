@@ -102,12 +102,35 @@ form {
 
     p {
         position: absolute;
-        bottom: 0;
-        left: 1em;
+        padding: 0.5em;
+        margin: 0;
+        visibility: hidden;
+    }
+
+    .rating {
+        bottom: 4px;
+        left: 0;
+    }
+
+    .favorite-button {
+        bottom: 4px;
+        right: 0;
+    }
+
+    &:hover {
+        img {
+            filter: brightness(75%);
+        }
+        .rating,
+        .favorite-button {
+            background-color: rgba($primary-color-dark, 0.5);
+            visibility: visible;
+        }
+        .favorite-button:hover {
+            cursor: pointer;
+        }
     }
 }
-
-
 
 #{$buttons-list} {
   background-color: $button-background-color;
@@ -118,7 +141,6 @@ form {
   border: solid 0.5em $button-background-color;
   white-space: nowrap;
   overflow: hidden;
-//   transition: background-color $base-duration $base-timing;
 
   &:hover {
     background-color: $button-background-color-hover;
@@ -127,8 +149,24 @@ form {
 
   &:focus {
     outline: $secondary-color-dark;
-    // outline-offset: $focus-outline-offset;
   }
+}
+
+#show-favorites {
+    background-color: $secondary-color-dark;
+    font-weight: bold;
+    border: solid 0.5em $secondary-color-dark;
+    margin-bottom: $button-margin * 2;
+    width: 100%;
+  
+    &:hover {
+      background-color: shade($secondary-color-dark, 20%);
+      border-color: shade($secondary-color-dark, 20%);
+    }
+  
+    &:focus {
+      outline: $secondary-color-dark;
+    }
 }
 
 label {
@@ -211,6 +249,6 @@ label {
 
     .gif-container {
         display: inline-block;
-        padding-right: 1em;
+        margin-right: 1em;
     }
 }
